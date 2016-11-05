@@ -15,9 +15,19 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
    
-   (function() {
-   FB.getLoginStatus(function(response) {
-    console.log(response);
-});});</script>
+
+document.onreadystatechange = function () {
+  var state = document.readyState
+  if (state == 'interactive') {
+      document.getElementById('note').innerHTML = 'Document ready to accept interactions.'
+  } else if (state == 'complete') {
+     document.getElementById('note').innerHTML = 'Document completely loaded'
+     FB.getLoginStatus(function(response) {
+   		 console.log(response);
+	});
+  }
+}
+</script>
+<span id=""note"></span>
 
 
