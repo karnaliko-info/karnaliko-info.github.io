@@ -14,7 +14,11 @@
      js.src = "//connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-   
+  
+  function Check(){
+  FB.getLoginStatus(function(response) {
+   		 console.log(response);
+	});}
 
 document.onreadystatechange = function () {
   var state = document.readyState
@@ -22,9 +26,6 @@ document.onreadystatechange = function () {
       document.getElementById('note').innerHTML = 'Document ready to accept interactions.'
   } else if (state == 'complete') {
      document.getElementById('note').innerHTML = 'Document completely loaded'
-     FB.getLoginStatus(function(response) {
-   		 console.log(response);
-	});
   }
 }
 </script>
