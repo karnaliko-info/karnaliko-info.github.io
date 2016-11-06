@@ -1,0 +1,64 @@
+<script>
+function convertHex(hex, alpha) {
+  hex = hex.replace('#', '');
+  r = parseInt(hex.substring(0, 2), 16);
+  g = parseInt(hex.substring(2, 4), 16);
+  b = parseInt(hex.substring(4, 6), 16);
+
+  result = 'rgba(' + r + ',' + g + ',' + b + ',' + alpha / 100 + ')';
+  return result;
+}
+
+function Ready() {
+  var ctx = document.getElementById("karnaliko");
+  var color = ["#35CE8D", "#3772FF", "#8AC848", "#F8F32B", "#731963", "#ff0000"];
+  var districts = ["Dolpa", "Humla", "Jumla", "Mugu", "Kalikot", "Nepal"];
+  var labels = ["Literacy Rate(%)", "Child Marriage(%)", "Infant Mortality Rate (%)", "Irrigated Land Area(%)", "Safe Drinking Water(%)", "Life Expectancy at Birth"];
+  var datasets = [{
+    label: districts[0],
+    backgroundColor: convertHex(color[0], 45),
+    data: [54.1, 4.0, 70.9, 22.1, 64.7, 57.7]
+  }, {
+    label: districts[1],
+    backgroundColor: convertHex(color[1], 45),
+    data: [47.8, 6.1, 61.1, 15.2, 69.7, 58.9]
+  }, {
+    label: districts[2],
+    backgroundColor: convertHex(color[2], 45),
+    data: [54.7, 10.5, 64.0, 21.9, 80.1, 62.7]
+  }, {
+    label: districts[3],
+    backgroundColor: convertHex(color[3], 45),
+    data: [51.3, 5.0, 41.2, 15.3, 75.3, 59.6]
+  }, {
+    label: districts[4],
+    backgroundColor: convertHex(color[4], 45),
+    data: [56.8, 8.1, 63.0, 37.4, 59.0, 59.7]
+  }, {
+    label: districts[5],
+    backgroundColor: convertHex(color[5], 45),
+    data: [65.9, 10.2, 40.5, 52.0, 85.6, 66.6]
+  }];
+
+  var data = {
+    labels: labels,
+    datasets: datasets
+  };
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: {}
+  });}
+document.onreadystatechange = function () {
+  var state = document.readyState
+  if (state == 'interactive') {
+console.log("ok1")
+  } else if (state == 'complete') {
+Ready();
+  }
+}
+</script>
+
+
+<div style="max-width: 900px; max-height: 450px;">
+<canvas id="karnaliko" width="900px" height="450px"></canvas></div>
