@@ -54,8 +54,9 @@ function Ready() {
 document.onreadystatechange = function () {
   var state = document.readyState
   if (state == 'interactive') {
-document.getElementById("BarChart").innerHTML='<canvas id="karnaliko" width="800px" height="400px"></canvas>';
+
   } else if (state == 'complete') {
+  document.getElementById("BarChart").innerHTML='<canvas id="karnaliko" width="800px" height="400px"></canvas>';
 Ready();
   }
 }
