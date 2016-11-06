@@ -12,7 +12,8 @@ function convertHex(hex, alpha) {
 }
 
 function Ready() {
-  var ctx = document.getElementById("karnaliko");
+  var ctx = document.getElementById("bar");
+    var ctxs = document.getElementById("radar");
   var color = ["#35CE8D", "#3772FF", "#8AC848", "#F8F32B", "#731963", "#ff0000"];
   var districts = ["Dolpa", "Humla", "Jumla", "Mugu", "Kalikot", "Nepal"];
   var labels = ["Literacy Rate(%)", "Child Marriage(%)", "Infant Mortality Rate (%)", "Irrigated Land Area(%)", "Safe Drinking Water(%)", "Life Expectancy at Birth"];
@@ -51,7 +52,7 @@ function Ready() {
     data: data,
     options: {}
   });  
-  var myChart = new Chart(ctx, {
+  var myCharts = new Chart(ctx, {
     type: 'radar',
     data: data,
     options: {}
@@ -59,7 +60,7 @@ function Ready() {
 document.onreadystatechange = function () {
   var state = document.readyState
   if (state == 'interactive') {
-document.getElementById("BarChart").innerHTML='<h2>Bar Chart</h2><canvas id="karnaliko" width="800px" height="400px"></canvas><hr><h2>Radar Chart</h2><canvas id="radar" width="800px" height="400px"></canvas>';
+document.getElementById("karnaliko").innerHTML='<h2>Bar Chart</h2><canvas id="Bar" width="800px" height="400px"></canvas><hr><h2>Radar Chart</h2><canvas id="radar" width="800px" height="400px"></canvas>';
   } else if (state == 'complete') {
 Ready();
   }
