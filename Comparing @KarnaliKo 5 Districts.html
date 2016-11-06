@@ -1,9 +1,9 @@
-<script src="https://rawgit.com/nnnick/Chart.js/v1.0.2/Chart.min.js" data-cfasync="false" ></script>
+<script src="https://npmcdn.com/chart.js@latest/dist/Chart.bundle.min.js" data-cfasync="false" ></script>
 <div style="max-width: 800px; max-height: 400px;" id="karnaliko">Loading...
 </div>
 <script data-cfasync="false" >
 if(window.top.location == window.location){
-  //window.location = "https://www.karnaliko.info/2016/11/karnali-in-statistics";
+  window.location = "https://www.karnaliko.info/2016/11/karnali-in-statistics";
 }
 function convertHex(hex, alpha) {
   hex = hex.replace('#', '');
@@ -15,28 +15,7 @@ function convertHex(hex, alpha) {
 }
 
 function Ready() {
-  var data = {
-    labels: labels,
-    datasets: datasets
-  };
-  var ctx = document.getElementById("bar").getContext("2d");
-var myBar = new Chart(ctx).Bar(data, {
-    showTooltips: false,
-    onAnimationComplete: function () {
-
-        var ctx = this.chart.ctx;
-        ctx.font = this.scale.font;
-        ctx.fillStyle = this.scale.textColor
-        ctx.textAlign = "center";
-        ctx.textBaseline = "bottom";
-
-        this.datasets.forEach(function (dataset) {
-            dataset.bars.forEach(function (bar) {
-                ctx.fillText(bar.value, bar.x, bar.y - 5);
-            });
-        })
-    }
-});
+  var ctx = document.getElementById("bar");
   var color = ["#35CE8D", "#3772FF", "#8AC848", "#F8F32B", "#731963", "#ff0000"];
   var districts = ["Dolpa", "Humla", "Jumla", "Mugu", "Kalikot", "Nepal"];
   var labels = ["Literacy Rate(%)", "Child Marriage(%)", "Infant Mortality Rate (%)", "Irrigated Land Area(%)", "Safe Drinking Water(%)", "Life Expectancy at Birth"];
@@ -58,16 +37,18 @@ var myBar = new Chart(ctx).Bar(data, {
     data: [51.3, 5.0, 41.2, 15.3, 75.3, 59.6]
   }, {
     label: districts[4],
-    backgroundColor: convertHex(color[4], 55),
+    backgroundColor: convertHex(color[4], 25),
     data: [56.8, 8.1, 63.0, 37.4, 59.0, 59.7]
   }, {
     label: districts[5],
-    backgroundColor: convertHex(color[5], 55),
+    backgroundColor: convertHex(color[5], 25),
     data: [65.9, 10.2, 40.5, 52.0, 85.6, 66.6]
   }];
 
-
-  
+  var data = {
+    labels: labels,
+    datasets: datasets
+  };
   var myChart = new Chart(ctx, {
     type: 'bar',
     data: data,
@@ -79,7 +60,7 @@ document.onreadystatechange = function () {
   if (state == 'interactive') {
 
   } else if (state == 'complete') {
-  document.getElementById("karnaliko").innerHTML='<canvas id="bar" width="900px" height="450px"></canvas>';
+  document.getElementById("karnaliko").innerHTML='<canvas id="bar" width="800px" height="400px"></canvas>';
 Ready();
   }
 }
