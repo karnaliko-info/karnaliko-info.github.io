@@ -1,8 +1,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.5.1/socket.io.min.js" data-cfasync="false" ></script>
 <script src="https://npmcdn.com/chart.js@latest/dist/Chart.bundle.min.js" data-cfasync="false" ></script>
-
-<div style="max-width: 800px; max-height: 400px;">
-<canvas id="karnaliko" width="800px" height="400px"></canvas></div>
+<div style="max-width: 800px; max-height: 400px;" id="BarChart">Loading...
+</div>
 <script data-cfasync="false" >
 function convertHex(hex, alpha) {
   hex = hex.replace('#', '');
@@ -58,7 +57,7 @@ function Ready() {
 document.onreadystatechange = function () {
   var state = document.readyState
   if (state == 'interactive') {
-console.log("ok1")
+document.getElementById("BarChart").innerHTML="<canvas id="karnaliko" width="800px" height="400px"></canvas>";
   } else if (state == 'complete') {
 Ready();
   }
