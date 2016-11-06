@@ -50,6 +50,11 @@ function Ready() {
     type: 'bar',
     data: data,
     options: {}
+  });  
+  var myChart = new Chart(ctx, {
+    type: 'radar',
+    data: data,
+    options: {}
   });}
 document.onreadystatechange = function () {
   var state = document.readyState
