@@ -7,8 +7,7 @@ function convertHex(hex, alpha) {
   r = parseInt(hex.substring(0, 2), 16);
   g = parseInt(hex.substring(2, 4), 16);
   b = parseInt(hex.substring(4, 6), 16);
-  result = 'rgba(' + r + ',' + g + ',' + b + ',' + alpha / 100 + ')';
-  return result;
+ return 'rgba(' + r + ',' + g + ',' + b + ',' + alpha / 100 + ')';
 }
 
 function Ready() {
