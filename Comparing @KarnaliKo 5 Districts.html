@@ -1,13 +1,16 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js" data-cfasync="false" ></script>
+<script src="https://npmcdn.com/chart.js@latest/dist/Chart.bundle.min.js" data-cfasync="false" ></script>
 <div style="max-width: 800px; max-height: 400px;" id="BarChart">Loading...
 </div>
 <script data-cfasync="false" >
+var Chart = require('src/chart.js')
 function convertHex(hex, alpha) {
   hex = hex.replace('#', '');
   r = parseInt(hex.substring(0, 2), 16);
   g = parseInt(hex.substring(2, 4), 16);
   b = parseInt(hex.substring(4, 6), 16);
- return 'rgba(' + r + ',' + g + ',' + b + ',' + alpha / 100 + ')';
+
+  result = 'rgba(' + r + ',' + g + ',' + b + ',' + alpha / 100 + ')';
+  return result;
 }
 
 function Ready() {
@@ -54,9 +57,8 @@ function Ready() {
 document.onreadystatechange = function () {
   var state = document.readyState
   if (state == 'interactive') {
-
+document.getElementById("BarChart").innerHTML='<canvas id="karnaliko" width="800px" height="400px"></canvas>';
   } else if (state == 'complete') {
-  document.getElementById("BarChart").innerHTML='<canvas id="karnaliko" width="800px" height="400px"></canvas>';
 Ready();
   }
 }
