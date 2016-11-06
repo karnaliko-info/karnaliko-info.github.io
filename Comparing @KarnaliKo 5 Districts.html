@@ -60,7 +60,7 @@ function Ready() {
 document.onreadystatechange = function () {
   var state = document.readyState
   if (state == 'interactive') {
-document.getElementById("karnaliko").innerHTML='<h2>Bar Chart</h2><canvas id="Bar" width="800px" height="400px"></canvas><hr><h2>Radar Chart</h2><canvas id="radar" width="800px" height="400px"></canvas>';
+document.getElementById("karnaliko").innerHTML='<h2>Bar Chart</h2><canvas id="bar" width="800px" height="400px"></canvas><hr><h2>Radar Chart</h2><canvas id="radar" width="800px" height="400px"></canvas>';
   } else if (state == 'complete') {
 Ready();
   }
