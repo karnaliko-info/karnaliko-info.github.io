@@ -44,7 +44,6 @@ function Ready() {
 
   var data = {
     labels: labels,
-    title: "TEst",
     datasets: datasets
   };
   var myChart = new Chart(ctx, {
@@ -55,7 +54,7 @@ function Ready() {
 document.onreadystatechange = function () {
   var state = document.readyState
   if (state == 'interactive') {
-document.getElementById("BarChart").innerHTML='<canvas id="karnaliko" width="800px" height="400px"></canvas>';
+document.getElementById("BarChart").innerHTML='<h2>Bar Chart</h2><canvas id="karnaliko" width="800px" height="400px"></canvas><hr><h2>Radar Chart</h2><canvas id="radar" width="800px" height="400px"></canvas>';
   } else if (state == 'complete') {
 Ready();
   }
